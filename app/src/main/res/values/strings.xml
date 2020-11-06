@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ViewPagerDemo</string>
+    <string name="lorem_ipsum">Hello! %d</string>
+    <string name="page_number">0</string>
+</resources>
