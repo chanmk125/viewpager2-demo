@@ -1,10 +1,13 @@
 package com.example.viewpagerdemo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.viewpagerdemo.ui.ScreenSlidePagerActivity
+import com.example.viewpagerdemo.viewmodel.factory.SlideSharedViewModel
 import kotlinx.android.synthetic.main.fragment_screen_slide_page.*
 
 class ScreenSlidePageFragment : Fragment() {
@@ -22,6 +25,9 @@ class ScreenSlidePageFragment : Fragment() {
         arguments?.let {
             page_number.text = it.getInt(ARGS_PAGER_POSITION).toString()
         }
+        val activity = requireActivity() as ScreenSlidePagerActivity
+        val viewModel = activity.viewModelFactory.create(SlideSharedViewModel::class.java)
+        Log.d("viewModel", "$viewModel")
     }
 
     companion object {

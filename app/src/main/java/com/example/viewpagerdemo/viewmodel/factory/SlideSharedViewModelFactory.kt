@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 
 class SlideSharedViewModelFactory : ViewModelProvider.Factory {
 
+    // TODO: Fragment間でViewModelを共有できてないので修正するg
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return with(modelClass) {

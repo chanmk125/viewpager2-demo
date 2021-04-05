@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.viewpagerdemo.R
+import com.example.viewpagerdemo.viewmodel.factory.SlideSharedViewModelFactory
 import kotlinx.android.synthetic.main.activity_screen_slide.*
 
 // For logging.
@@ -18,9 +19,14 @@ class ScreenSlidePagerActivity : FragmentActivity() {
      */
     private lateinit var viewPager: ViewPager2
 
+    // Keep an instance of the factory that provides a shared viewModel to each pager fragments
+    lateinit var viewModelFactory: SlideSharedViewModelFactory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_screen_slide)
+
+        viewModelFactory = SlideSharedViewModelFactory()
 
         // Instantiate a ViewPager2 and a PagerAdapter.
         viewPager = findViewById(R.id.pager)
