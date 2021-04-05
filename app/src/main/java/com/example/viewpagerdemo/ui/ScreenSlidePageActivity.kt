@@ -1,17 +1,11 @@
-package com.example.viewpagerdemo
+package com.example.viewpagerdemo.ui
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.viewpagerdemo.R
 import kotlinx.android.synthetic.main.activity_screen_slide.*
-
-/**
- * The number of pages (wizard steps) to show in this demo.
- */
-private const val NUM_PAGES = 5
 
 // For logging.
 const val TAG = "testing"
@@ -56,16 +50,5 @@ class ScreenSlidePagerActivity : FragmentActivity() {
             // Otherwise, select the previous step.
             viewPager.currentItem = viewPager.currentItem - 1
         }
-    }
-
-    /**
-     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
-     * sequence.
-     */
-    private class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = NUM_PAGES
-
-        override fun createFragment(position: Int): Fragment =
-            ScreenSlidePageFragment.newIntent(position)
     }
 }
