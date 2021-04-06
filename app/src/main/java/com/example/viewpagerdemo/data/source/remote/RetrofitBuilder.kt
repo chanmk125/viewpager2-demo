@@ -1,6 +1,6 @@
-package com.example.viewpagerdemo.data
+package com.example.viewpagerdemo.data.source.remote
 
-import com.example.viewpagerdemo.data.api.GitHubApi
+import com.example.viewpagerdemo.data.source.remote.api.GitHubApi
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

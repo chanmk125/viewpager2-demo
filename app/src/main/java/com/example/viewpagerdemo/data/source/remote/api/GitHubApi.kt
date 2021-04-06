@@ -1,4 +1,4 @@
-package com.example.viewpagerdemo.data.api
+package com.example.viewpagerdemo.data.source.remote.api
 
 import com.example.viewpagerdemo.data.model.GitHubOwner
 import com.example.viewpagerdemo.data.model.GitHubRepo

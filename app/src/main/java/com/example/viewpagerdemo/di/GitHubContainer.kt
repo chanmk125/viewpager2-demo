@@ -2,7 +2,7 @@ package com.example.viewpagerdemo.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.viewpagerdemo.data.RetrofitBuilder
+import com.example.viewpagerdemo.data.source.remote.RetrofitBuilder
 import com.example.viewpagerdemo.data.source.local.GitHubDatabase
 
 /**
