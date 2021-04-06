@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.viewpagerdemo.MyApplication
 import com.example.viewpagerdemo.R
 import com.example.viewpagerdemo.viewmodel.factory.SlideSharedViewModelFactory
 import kotlinx.android.synthetic.main.activity_screen_slide.*
@@ -26,7 +27,7 @@ class ScreenSlidePagerActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_screen_slide)
 
-        viewModelFactory = SlideSharedViewModelFactory()
+        setupViewModelFactory()
 
         // Instantiate a ViewPager2 and a PagerAdapter.
         viewPager = findViewById(R.id.pager)
@@ -45,6 +46,11 @@ class ScreenSlidePagerActivity : FragmentActivity() {
 
         // For testing, access an instance of a page number.
         Log.d(TAG, "${page_number.accessibilityClassName}")
+    }
+
+    private fun setupViewModelFactory() {
+        val repository = MyApplication.gitHubContainer.githubRepository
+        viewModelFactory = SlideSharedViewModelFactory(repository)
     }
 
     override fun onBackPressed() {

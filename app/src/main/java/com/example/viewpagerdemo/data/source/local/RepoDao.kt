@@ -16,4 +16,7 @@ interface RepoDao {
 
     @Delete
     suspend fun delete(repo: GitHubRepo)
+
+    @Query("DELETE FROM github_repos")
+    suspend fun deleteAll()
 }

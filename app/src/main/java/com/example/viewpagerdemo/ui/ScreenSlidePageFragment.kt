@@ -21,7 +21,7 @@ class ScreenSlidePageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val activity = requireActivity() as ScreenSlidePagerActivity
-        val viewModel =
+        viewModel =
             ViewModelProvider(activity, activity.viewModelFactory).get(SlideSharedViewModel::class.java)
         Log.d("viewModel", "$viewModel")
         return inflater.inflate(R.layout.fragment_screen_slide_page, container, false)
@@ -32,6 +32,7 @@ class ScreenSlidePageFragment : Fragment() {
         arguments?.let {
             page_number.text = it.getInt(ARGS_PAGER_POSITION).toString()
         }
+        viewModel.initRepoList()
     }
 
     companion object {
