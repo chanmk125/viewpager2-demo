@@ -1,5 +1,6 @@
 package com.example.viewpagerdemo.repository
 
+import android.util.Log
 import com.example.viewpagerdemo.data.model.GitHubRepo
 import com.example.viewpagerdemo.data.result.Result
 import com.example.viewpagerdemo.data.source.GitHubDataSource
@@ -10,19 +11,31 @@ class GitHubRepositoryImpl(
 ) : GitHubRepository {
 
     override suspend fun getReposByUsername(): Result<List<GitHubRepo>> {
-        val forceUpdate = false // fake value
+        val forceUpdate = true // fake value
         if (forceUpdate) {
-            // Never pass here until implement updateLocalRepos()
-            updateLocalRepos()
+            try {
+                updateLocalRepos()
+            } catch (e: Exception) {
+                return Result.Error(e)
+            }
         }
-
+        Log.d("repository", "succeeded to update local db")
         return remoteDataSource.getReposByUsername()
     }
 
     private suspend fun updateLocalRepos() {
         val remoteRepos = remoteDataSource.getReposByUsername()
+        Log.d("repository", "fetched value: $remoteRepos")
         if (remoteRepos is Result.Success) {
-            // TODO: delete local and insert all
+            remoteRepos.data?.forEach {
+                Log.d("repository", "item id: ${it.id}, name: ${it.repoName}, url: ${it.url}")
+            }
+            localDataSource.deleteAllRepose()
+            Log.d("repository", "succeeded to delete all")
+            remoteRepos.data?.let { repos ->
+                localDataSource.saveRepos(repos)
+                Log.d("repository", "succeeded to save all")
+            }
         } else {
             throw Exception("failed to fetch")
         }
