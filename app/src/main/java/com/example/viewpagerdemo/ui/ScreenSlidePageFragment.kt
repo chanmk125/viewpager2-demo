@@ -1,19 +1,29 @@
 package com.example.viewpagerdemo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.viewpagerdemo.ui.ScreenSlidePagerActivity
+import com.example.viewpagerdemo.viewmodel.factory.SlideSharedViewModel
 import kotlinx.android.synthetic.main.fragment_screen_slide_page.*
 
 class ScreenSlidePageFragment : Fragment() {
+
+    private lateinit var viewModel: SlideSharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val activity = requireActivity() as ScreenSlidePagerActivity
+        val viewModel =
+            ViewModelProvider(activity, activity.viewModelFactory).get(SlideSharedViewModel::class.java)
+        Log.d("viewModel", "$viewModel")
         return inflater.inflate(R.layout.fragment_screen_slide_page, container, false)
     }
 
