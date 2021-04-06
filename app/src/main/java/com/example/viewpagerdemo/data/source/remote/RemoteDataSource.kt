@@ -22,4 +22,12 @@ class RemoteDataSource(
         }
     }
 
+    override suspend fun saveRepos(list: List<GitHubRepo>) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun deleteAllRepose() {
+        TODO("Not yet implemented")
+    }
+
 }

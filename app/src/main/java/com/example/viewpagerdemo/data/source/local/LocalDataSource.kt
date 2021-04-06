@@ -20,4 +20,16 @@ class LocalDataSource(
         }
     }
 
+    override suspend fun saveRepos(list: List<GitHubRepo>) {
+        withContext(Dispatchers.IO) {
+            repoDao.insertAll(list)
+        }
+    }
+
+    override suspend fun deleteAllRepose() {
+        withContext(Dispatchers.IO) {
+            repoDao.deleteAll()
+        }
+    }
+
 }
