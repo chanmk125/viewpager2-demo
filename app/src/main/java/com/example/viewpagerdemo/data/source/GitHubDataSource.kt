@@ -5,5 +5,5 @@ import com.example.viewpagerdemo.data.result.Result
 
 interface GitHubDataSource {
 
-    suspend fun getReposByUsername(): Result<GitHubRepo>
+    suspend fun getReposByUsername(): Result<List<GitHubRepo>>
 }
