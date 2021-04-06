@@ -10,7 +10,22 @@ class GitHubRepositoryImpl(
 ) : GitHubRepository {
 
     override suspend fun getReposByUsername(): Result<List<GitHubRepo>> {
+        val forceUpdate = false // fake value
+        if (forceUpdate) {
+            // Never pass here until implement updateLocalRepos()
+            updateLocalRepos()
+        }
+
         return remoteDataSource.getReposByUsername()
+    }
+
+    private suspend fun updateLocalRepos() {
+        val remoteRepos = remoteDataSource.getReposByUsername()
+        if (remoteRepos is Result.Success) {
+            // TODO: delete local and insert all
+        } else {
+            throw Exception("failed to fetch")
+        }
     }
 
 }
