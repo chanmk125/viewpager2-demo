@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
 @Entity(tableName = "github_repos")
-class GitHubRepo (
+class GitHubRepo(
     @PrimaryKey
     val id: Int,
 
