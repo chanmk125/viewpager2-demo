@@ -1,7 +1,5 @@
 # viewpager2-demo
-
-ViewPager をメイン画面として、Android Jetpack の基本的なサンプルを実装していく。
-
+ViewPager をメイン画面として、Android Jetpack の基本的な使い方を網羅しながらサンプルアプリを実装していく。
 
 # 使用ライブラリ（予定を含む）
 ## Android Jetpack
@@ -20,11 +18,12 @@ ViewPager をメイン画面として、Android Jetpack の基本的なサンプ
 - Moshi
 
 # 仕様
-GitHub API を使ってユーザ検索、リポジトリ検索などをして、画面に表示する。
+GitHub API を使ってユーザ検索・リポジトリ検索などをして、画面に表示する。
 
 タブレイアウトで下記のようにFragmentを構成する。
 - ユーザ検索
 - リポジトリ検索
+
 （アクセストークンなしで通信できるエンドポイント探して、他にも追加するかも）
 
 それぞれの検索結果は無限スクロールする。
@@ -41,5 +40,7 @@ GitHub API を使ってユーザ検索、リポジトリ検索などをして、
 # 参考
 ## Paging
 ## Room
+- https://developer.android.com/training/data-storage/room?hl=ja
+- https://developer.android.com/training/data-storage/room/referencing-data?hl=ja
 ## リポジトリ
 - [Android blueprints todo app](https://github.com/android/architecture-samples)
