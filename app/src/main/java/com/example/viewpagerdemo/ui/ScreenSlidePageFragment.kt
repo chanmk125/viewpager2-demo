@@ -1,4 +1,4 @@
-package com.example.viewpagerdemo
+package com.example.viewpagerdemo.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.viewpagerdemo.ui.ScreenSlidePagerActivity
-import com.example.viewpagerdemo.viewmodel.factory.SlideSharedViewModel
+import com.example.viewpagerdemo.R
+import com.example.viewpagerdemo.viewmodel.SlideSharedViewModel
 import kotlinx.android.synthetic.main.fragment_screen_slide_page.*
 
 class ScreenSlidePageFragment : Fragment() {

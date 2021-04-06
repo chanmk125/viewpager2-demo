@@ -1,4 +1,4 @@
-package com.example.viewpagerdemo.viewmodel.factory
+package com.example.viewpagerdemo.viewmodel
 
 import androidx.lifecycle.ViewModel
 

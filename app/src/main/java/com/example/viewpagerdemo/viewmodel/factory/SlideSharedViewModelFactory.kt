@@ -2,6 +2,7 @@ package com.example.viewpagerdemo.viewmodel.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.viewpagerdemo.viewmodel.SlideSharedViewModel
 
 class SlideSharedViewModelFactory : ViewModelProvider.Factory {
 
