@@ -9,8 +9,8 @@ class GitHubRepositoryImpl(
     private val localDataSource: GitHubDataSource
 ) : GitHubRepository {
 
-    override suspend fun getReposByUsername(): Result<GitHubRepo> {
-        TODO("Not yet implemented")
+    override suspend fun getReposByUsername(): Result<List<GitHubRepo>> {
+        return remoteDataSource.getReposByUsername()
     }
 
 }
