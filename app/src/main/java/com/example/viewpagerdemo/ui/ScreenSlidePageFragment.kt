@@ -13,11 +13,17 @@ import kotlinx.android.synthetic.main.fragment_screen_slide_page.*
 
 class ScreenSlidePageFragment : Fragment() {
 
+    private lateinit var viewModel: SlideSharedViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val activity = requireActivity() as ScreenSlidePagerActivity
+        val viewModel =
+            ViewModelProvider(activity, activity.viewModelFactory).get(SlideSharedViewModel::class.java)
+        Log.d("viewModel", "$viewModel")
         return inflater.inflate(R.layout.fragment_screen_slide_page, container, false)
     }
 
@@ -26,10 +32,6 @@ class ScreenSlidePageFragment : Fragment() {
         arguments?.let {
             page_number.text = it.getInt(ARGS_PAGER_POSITION).toString()
         }
-        val activity = requireActivity() as ScreenSlidePagerActivity
-        val viewModel =
-            ViewModelProvider(activity, activity.viewModelFactory).get(SlideSharedViewModel::class.java)
-        Log.d("viewModel", "$viewModel")
     }
 
     companion object {
