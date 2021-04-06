@@ -32,6 +32,7 @@ class ScreenSlidePageFragment : Fragment() {
         arguments?.let {
             page_number.text = it.getInt(ARGS_PAGER_POSITION).toString()
         }
+        viewModel.initRepoList()
     }
 
     companion object {
