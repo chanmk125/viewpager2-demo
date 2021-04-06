@@ -15,6 +15,6 @@ class MyApplication : Application() {
     }
 
     private fun initContainer() {
-        gitHubContainer = GitHubContainer()
+        gitHubContainer = GitHubContainer(applicationContext)
     }
 }
