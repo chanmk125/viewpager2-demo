@@ -20,7 +20,7 @@ class GitHubRepositoryImpl(
             }
         }
         Log.d("repository", "succeeded to update local db")
-        return remoteDataSource.getReposByUsername()
+        return localDataSource.getReposByUsername()
     }
 
     private suspend fun updateLocalRepos() {
